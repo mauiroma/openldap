@@ -119,6 +119,7 @@ if [ ! -f /etc/openldap/CONFIGURED ]; then
     touch /etc/openldap/CONFIGURED
 fi
 
+
 ldapadd -x -D "cn=Manager,dc=example,dc=com" -f /tmp/sample.ldif -w admin
 # Start the slapd service
 exec slapd -h "ldap:/// ldaps:///" -d $OPENLDAP_DEBUG_LEVEL

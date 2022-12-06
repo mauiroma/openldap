@@ -30,6 +30,7 @@ COPY ./contrib/*.schema /usr/local/etc/openldap/
 COPY ./contrib/DB_CONFIG /usr/local/etc/openldap/
 
 # Add test query
+COPY sample/sample.ldif /etc/openldap/schema/99user.ldif
 COPY sample/sample.ldif /tmp/sample.ldif
 
 # Install OpenLDAP Server, give it permissionst to bind to low ports
