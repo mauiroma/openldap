@@ -1,0 +1,69 @@
+version: 1
+
+dn: ou=Groups,{{ LDAP_BASE_DN }}
+objectClass: organizationalUnit
+objectClass: top
+ou: Groups
+
+dn: ou=People,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: organizationalUnit
+ou: People
+
+dn: uid=bwayne,ou=People,{{ LDAP_BASE_DN }}
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: top
+cn: Bruce
+sn: Wayne
+uid: bwayne
+mail: bwayne@dc.com
+userPassword:: password
+
+dn: uid=ckent,ou=People,{{ LDAP_BASE_DN }}
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: top
+cn: Clark
+sn: Kent
+uid: ckent
+mail: ckent@dc.com
+userPassword:: password
+
+dn: uid=tstark,ou=People,{{ LDAP_BASE_DN }}
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: top
+cn: Tony
+sn: Stark
+uid: tstark
+mail: tstark@marvel.com
+userPassword:: password
+
+dn: uid=srogers,ou=People,{{ LDAP_BASE_DN }}
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: top
+cn: Steven
+sn: Rogers
+uid: srogers
+mail: srogers@marvel.com
+userPassword:: password
+
+dn: uid=Marvel,ou=Groups,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: groupOfUniqueNames
+objectClass: uidObject
+cn: Marvel
+uid: Marvel
+uniqueMember: uid=srogers,ou=People,{{ LDAP_BASE_DN }}
+uniqueMember: uid=tstark,ou=People,{{ LDAP_BASE_DN }}
+
+dn: uid=DcComics,ou=Groups,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: groupOfUniqueNames
+objectClass: uidObject
+cn: DcComics
+uid: DcComics
+uniqueMember: uid=ckent,ou=People,{{ LDAP_BASE_DN }}
+uniqueMember: uid=bwayne,ou=People,{{ LDAP_BASE_DN }}

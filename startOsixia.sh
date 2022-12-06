@@ -1,0 +1,1 @@
+docker run --volume $PWD/initdb:/container/service/slapd/assets/config/bootstrap/ldif/custom -e LDAP_ORGANISATION=rhsso -e LDAP_DOMAIN=rhsso.com -e LDAP_ADMIN_PASSWORD=password -p 1389:389 -p 1636:636  --detach --rm osixia/openldap:latest --copy-service
