@@ -19,3 +19,62 @@ dn: ou=Group,OPENLDAP_SUFFIX
 objectClass: organizationalUnit
 ou: Group
 
+
+dn: uid=bwayne,ou=People,OPENLDAP_SUFFIX
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: top
+cn: Bruce
+sn: Wayne
+uid: bwayne
+mail: bwayne@dc.com
+userPassword:: password
+
+dn: uid=ckent,ou=People,OPENLDAP_SUFFIX
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: top
+cn: Clark
+sn: Kent
+uid: ckent
+mail: ckent@dc.com
+userPassword:: password
+
+dn: uid=tstark,ou=People,OPENLDAP_SUFFIX
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: top
+cn: Tony
+sn: Stark
+uid: tstark
+mail: tstark@marvel.com
+userPassword:: password
+
+dn: uid=srogers,ou=People,OPENLDAP_SUFFIX
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: top
+cn: Steven
+sn: Rogers
+uid: srogers
+mail: srogers@marvel.com
+userPassword:: password
+
+dn: uid=Marvel,ou=Group,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: groupOfUniqueNames
+objectClass: uidObject
+cn: Marvel
+uid: Marvel
+uniqueMember: uid=srogers,ou=People,OPENLDAP_SUFFIX
+uniqueMember: uid=tstark,ou=People,OPENLDAP_SUFFIX
+
+dn: uid=DcComics,ou=Group,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: groupOfUniqueNames
+objectClass: uidObject
+cn: DcComics
+uid: DcComics
+uniqueMember: uid=ckent,ou=People,OPENLDAP_SUFFIX
+uniqueMember: uid=bwayne,ou=People,OPENLDAP_SUFFIX
+
