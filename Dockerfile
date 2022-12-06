@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi7/ubi
+FROM fedora:34
 
 # OpenLDAP server image for OpenShift Origin
 #
@@ -22,15 +22,25 @@ ENV OPENLDAP_ROOT_DN_PREFIX   cn=admin
 # Add defaults for config
 COPY ./contrib/config /opt/openshift/config
 COPY ./contrib/lib /opt/openshift/lib
+
 # Add startup scripts
 COPY ./contrib/run-*.sh /usr/local/bin/
-COPY contrib/*.ldif /usr/local/etc/openldap/
-COPY contrib/*.schema /usr/local/etc/openldap/
-COPY contrib/DB_CONFIG /usr/local/etc/openldap/
+COPY ./contrib/*.ldif /usr/local/etc/openldap/
+COPY ./contrib/*.schema /usr/local/etc/openldap/
+COPY ./contrib/DB_CONFIG /usr/local/etc/openldap/
+
+# Add test query
+COPY test/test.ldif /test/test.ldif
 
 # Install OpenLDAP Server, give it permissionst to bind to low ports
-RUN yum install -y git openssl openldap openldap-servers openldap-clients procps-ng && \
-    yum clean all -y && \
+RUN dnf install -y \
+        git findutils make \
+        openldap \
+        openldap-servers \
+        openldap-clients \
+        openssl \
+        procps-ng && \
+    dnf clean all -y && \
     setcap 'cap_net_bind_service=+ep' /usr/sbin/slapd && \
     mkdir -p /var/lib/ldap && \
     chmod a+rwx -R /var/lib/ldap && \
@@ -38,7 +48,7 @@ RUN yum install -y git openssl openldap openldap-servers openldap-clients procps
     chmod a+rwx -R /etc/openldap && \
     mkdir -p /var/run/openldap && \
     chmod a+rwx -R /var/run/openldap && \
-    chmod -R a+rw /opt/openshift 
+    chmod -R a+rw /opt/openshift
 
 # Set OpenLDAP data and config directories in a data volume
 VOLUME ["/var/lib/ldap", "/etc/openldap"]
