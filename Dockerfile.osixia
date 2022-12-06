@@ -1,8 +1,8 @@
 FROM osixia/openldap:latest
 
- ENV LDAP_ORGANISATION rhsso 
- ENV LDAP_DOMAIN rhsso.com
- ENV LDAP_ADMIN_PASSWORD password
+ENV LDAP_ORGANISATION rhsso 
+ENV LDAP_DOMAIN rhsso.com
+ENV LDAP_ADMIN_PASSWORD password
 
 
 COPY initdb /container/service/slapd/assets/config/bootstrap/ldif/custom

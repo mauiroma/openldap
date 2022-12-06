@@ -15,9 +15,9 @@ LABEL io.k8s.description="OpenLDAP is an open source implementation of the Light
       io.openshift.non-scalable="true"
 
 
-ENV OPENLDAP_ROOT_PASSWORD    password
-ENV OPENLDAP_ROOT_DN_SUFFIX   dc=rhsso,dc=com
-ENV OPENLDAP_ROOT_DN_PREFIX   cn=admin
+#ENV OPENLDAP_ROOT_PASSWORD    password
+#ENV OPENLDAP_ROOT_DN_SUFFIX   dc=rhsso,dc=com
+#ENV OPENLDAP_ROOT_DN_PREFIX   cn=admin
 
 # Add defaults for config
 COPY ./contrib/config /opt/openshift/config
