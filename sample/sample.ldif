@@ -1,6 +1,18 @@
 dn: cn=schema
 objectClass: olcSchemaConfig
 
+dn: dc=example,dc=com
+objectClass: top
+objectClass: dcObject
+objectclass: organization
+dc: FIRST_PART
+o: FIRST_PART
+
+dn: cn=Manager,dc=example,dc=com
+objectClass: organizationalRole
+cn: Manager
+description: LDAP Directory Manager
+
 dn: ou=People,dc=example,dc=com
 objectClass: organizationalUnit
 ou: People
