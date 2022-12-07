@@ -119,7 +119,7 @@ if [ ! -f /etc/openldap/CONFIGURED ]; then
     touch /etc/openldap/CONFIGURED
 fi
 
-nohup /sample/addSampleData.sh &
+sh /sample/addSampleData.sh &
 
 # Start the slapd service
 exec slapd -h "ldap:/// ldaps:///" -d $OPENLDAP_DEBUG_LEVEL
