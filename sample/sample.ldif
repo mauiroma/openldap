@@ -1,7 +1,6 @@
 dn: cn=schema
 objectClass: olcSchemaConfig
 
-
 dn: ou=People,dc=example,dc=com
 objectClass: organizationalUnit
 ou: People
