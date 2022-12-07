@@ -114,11 +114,11 @@ if [ ! -f /etc/openldap/CONFIGURED ]; then
         echo "The file ${err} has a checksum error. Ensure that this file is not edited manually, or re-calculate the checksum."
     done
 
-    #rm -rf /opt/openshift/*
+    cp /opt/openshift/user.ldif /etc/openldap/slapd.d/cn\=config/cn\=schema
+    
+    rm -rf /opt/openshift/*
 
     touch /etc/openldap/CONFIGURED
 fi
-
-
 # Start the slapd service
 exec slapd -h "ldap:/// ldaps:///" -d $OPENLDAP_DEBUG_LEVEL
