@@ -51,7 +51,6 @@ RUN dnf install -y \
     chmod -R a+rw /opt/openshift
 
 #Sample ldif
-COPY sample/sample.ldif /etc/openldap/schema/99sample.ldif
 
 
 # Set OpenLDAP data and config directories in a data volume
@@ -59,5 +58,7 @@ VOLUME ["/var/lib/ldap", "/etc/openldap"]
 
 # Expose default ports for ldap and ldaps
 EXPOSE 389 636
+
+COPY sample/sample.ldif /etc/openldap/schema/99sample.ldif
 
 CMD ["sh", "-x", "/usr/local/bin/run-openldap.sh"]
