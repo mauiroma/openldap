@@ -1,0 +1,69 @@
+dn: cn=schema
+objectClass: olcSchemaConfig
+
+dn: ou=People,dc=example,dc=com
+objectClass: organizationalUnit
+ou: People
+
+dn: ou=Group,dc=example,dc=com
+objectClass: organizationalUnit
+ou: Group
+
+
+dn: uid=bwayne,ou=People,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: top
+cn: Bruce
+sn: Wayne
+uid: bwayne
+mail: bwayne@dc.com
+userPassword: password
+
+dn: uid=ckent,ou=People,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: top
+cn: Clark
+sn: Kent
+uid: ckent
+mail: ckent@dc.com
+userPassword: password
+
+dn: uid=tstark,ou=People,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: top
+cn: Tony
+sn: Stark
+uid: tstark
+mail: tstark@marvel.com
+userPassword: password
+
+dn: uid=srogers,ou=People,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: top
+cn: Steven
+sn: Rogers
+uid: srogers
+mail: srogers@marvel.com
+userPassword: password
+
+dn: uid=Marvel,ou=Group,dc=example,dc=com
+objectClass: top
+objectClass: groupOfUniqueNames
+objectClass: uidObject
+cn: Marvel
+uid: Marvel
+uniqueMember: uid=srogers,ou=People,dc=example,dc=com
+uniqueMember: uid=tstark,ou=People,dc=example,dc=com
+
+dn: uid=DcComics,ou=Group,dc=example,dc=com
+objectClass: top
+objectClass: groupOfUniqueNames
+objectClass: uidObject
+cn: DcComics
+uid: DcComics
+uniqueMember: uid=ckent,ou=People,dc=example,dc=com
+uniqueMember: uid=bwayne,ou=People,dc=example,dc=com
