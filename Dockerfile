@@ -24,8 +24,8 @@ COPY ./contrib/config /opt/openshift/config
 COPY ./contrib/lib /opt/openshift/lib
 
 # Add sample ldif
+COPY sample/sample.ldif /opt/openshift/config/schema/99sample.ldif
 COPY sample/sample.ldif /tmp/sample.ldif
-COPY sample/sample.ldif /opt/openshift/user.ldif
 
 # Add startup scripts
 COPY ./contrib/run-*.sh /usr/local/bin/
