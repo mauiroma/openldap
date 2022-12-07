@@ -1,9 +1,9 @@
 version: 1
 
-dn: ou=Groups,{{ LDAP_BASE_DN }}
+dn: ou=Group,{{ LDAP_BASE_DN }}
 objectClass: organizationalUnit
 objectClass: top
-ou: Groups
+ou: Group
 
 dn: ou=People,{{ LDAP_BASE_DN }}
 objectClass: top
@@ -50,7 +50,7 @@ uid: srogers
 mail: srogers@marvel.com
 userPassword:: password
 
-dn: uid=Marvel,ou=Groups,{{ LDAP_BASE_DN }}
+dn: uid=Marvel,ou=Group,{{ LDAP_BASE_DN }}
 objectClass: top
 objectClass: groupOfUniqueNames
 objectClass: uidObject
@@ -59,7 +59,7 @@ uid: Marvel
 uniqueMember: uid=srogers,ou=People,{{ LDAP_BASE_DN }}
 uniqueMember: uid=tstark,ou=People,{{ LDAP_BASE_DN }}
 
-dn: uid=DcComics,ou=Groups,{{ LDAP_BASE_DN }}
+dn: uid=DcComics,ou=Group,{{ LDAP_BASE_DN }}
 objectClass: top
 objectClass: groupOfUniqueNames
 objectClass: uidObject
